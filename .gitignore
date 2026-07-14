@@ -1,0 +1,17 @@
+# Entorno y secretos
+.env
+venv/
+__pycache__/
+*.pyc
+
+# Base de datos local
+data/*.db
+data/*.db-journal
+
+# Editor / SO
+.vscode/
+.idea/
+.DS_Store
+
+# Docker
+*.log

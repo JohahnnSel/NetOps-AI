@@ -1,0 +1,16 @@
+services:
+  netops-ai:
+    build: .
+    ports:
+      - "5000:5000"
+    env_file:
+      - .env
+    volumes:
+      # La base SQLite queda en ./data en el host, persistente entre
+      # reinicios del contenedor.
+      - ./data:/app/data
+    cap_add:
+      # Necesario en algunos motores Docker para que ping (ICMP) funcione
+      # dentro del contenedor sin privilegios completos de root.
+      - NET_RAW
+    restart: unless-stopped
